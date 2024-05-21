@@ -7,30 +7,115 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5; /* Light background for contrast */
+            color: #1E231D; /* Main color for text */
         }
-        h1 {
-            color: #333;
+        header {
+            background-color: #1E231D;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
         }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1E231D;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: #1E231D;
+        }
+        nav a.active {
+            background-color: white;
+            color: #1E231D;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white; /* White background for content */
+            color: #1E231D; /* Main color for text */
+        }
+        .active-tab {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>Currently Working On</h1>
-    <ul>
-        <li>Need Golf</li>
-        <li>Need Basketball</li>
-        <li>Need Golf League</li>
-        <li>Need Art Gallery</li>
+    <header>
+        <h1>Need LLC</h1>
+    </header>
+    <nav>
+        <a href="#home" class="active" onclick="openTab(event, 'home')">Home</a>
+        <a href="#contact" onclick="openTab(event, 'contact')">Contact Info</a>
+        <a href="#products" onclick="openTab(event, 'products')">Products & Services</a>
+        <a href="#leadership" onclick="openTab(event, 'leadership')">Leadership Team</a>
+    </nav>
+    <div id="home" class="tab-content active-tab">
+        <h2>Welcome</h2>
+        <p>At Need LLC, we specialize in building mobile applications that address specific, real-world problems. Our mission is to go beyond simply delivering what users want; we delve deeper to uncover what they truly need. Through this approach, we develop solutions that not only meet but exceed expectations.</p>
+        <p>Our expertise lies in creating the most beautiful data visualizations imaginable. We believe that data should not just inform, but inspire. Our visualizations are stunning, intuitive, and perfectly crafted to present information in the simplest and most engaging way possible.</p>
+        <p>We pride ourselves on developing applications that are so user-friendly and intuitive that they require no instructions. Our designs are meticulously thought out to ensure that even the most complex data becomes easily accessible and understandable.</p>
+        <p>In today's world, many are overwhelmed by a torrent of data and noise, much of which is irrelevant and unhelpful. Our applications cut through this chaos, providing clarity and focus. We transform the way our customers interact with information, making their lives easier and more efficient. By focusing on what truly matters, we help our users navigate their data-driven environments with confidence and ease.        </p>
+        <p>At Need LLC, we don't just build apps; we create experiences that enhance lives by simplifying the complex and making the essential beautifully clear.        </p>
 
-    </ul>
 
-    <h1>Contact Me</h1>
-    <ul>
-        <li>Email: <a href="mailto:contact.needllc@gmail.com">contact.needllc@gmail.com</a></li>
-    </ul>
+    </div>
+    <div id="contact" class="tab-content">
+        <h2>We want to hear from you!</h2>
+        <p>Email: adambilski@needdatallc.com</p>
+    </div>
+    <div id="products" class="tab-content">
+        <h2>Products & Services Offered</h2>
+        <p>Right now, we are developing a few concepts that we are incredibly excited about.</p>
+        <ul>
+            <li>Need Golf - an app comparing professional golf earnings across tours, and beautiful data visualization of leaderboards</li>
+            <li>Need Basketball - monitor your favorite games, players, and referees like never before</li>
+            <li>Need Sandwiches - hands down the best sandwich recipe application serving up what you NEED!</li>
+            <li>Need Art Gallery - lose yourself in the most beautiful place to share and view real art in the palm of your hand.</li>
+            <li>Need League - the easiest way in the world to set up a golf scramble for your bachelor party, season-long league, or competive rounds with friend.</li>
+            <li>Need Habits - an app helping people reach goals, whatever that goal may be. Fitness? Eating? Spending Money? You name it, we can track it with EASE, and visualize it beautifully.</li>
+
+        </ul>
+
+        <p>Custom tailored solutions - what do you need?</p>
+        <ul>
+            <li>Contact us and let's set up a meeting to discuss how we can help.</li>
+        </ul>
+
+    </div>
+    <div id="leadership" class="tab-content">
+        <h2>Leadership Team</h2>
+        <p>Meet our leadership team:</p>
+        <ul>
+            <li>Founder and CEO: Adam Bilski</li>
+        </ul>
+    </div>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.querySelectorAll("nav a");
+            tablinks.forEach(function(tablink) {
+                tablink.classList.remove("active");
+            });
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("home").style.display = "block";
+        });
+    </script>
 </body>
 </html>
