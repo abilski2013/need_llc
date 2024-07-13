@@ -27,6 +27,7 @@ nav {
     background: rgba(42, 82, 152, 0.9); /* Semi-transparent blue */
     border-bottom: 2px solid #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Allows tabs to wrap on smaller screens */
 }
 
 nav a {
@@ -63,7 +64,7 @@ nav a.active {
 }
 
 h2 {
-    color: 'black'; 
+    color: black; /* Correcting typo in original styles */
     text-align: center;
     font-size: 2em;
     margin-bottom: 0.5em;
@@ -103,4 +104,22 @@ body::before {
     background: url('art-7387627_1280.png') no-repeat center center;
     opacity: 0.1; /* Light overlay to add a touch of swirling patterns */
     z-index: -1;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    h2 {
+        font-size: 1.8em; /* Adjusting heading size for smaller screens */
+    }
+    .tab-content {
+        max-width: 90%; /* Adjusting content width for smaller screens */
+        font-size: 1em; /* Adjusting font size for smaller screens */
+    }
+    nav {
+        flex-direction: column; /* Stack tabs vertically on smaller screens */
+        align-items: center; /* Center align tabs in vertical mode */
+    }
+    nav a {
+        margin-bottom: 10px; /* Add space between vertically stacked tabs */
+    }
 }
